@@ -6,7 +6,7 @@
 
 # set up 
 
-1. `git clone https://github.com/moriT958/dotfiles.git "$HOME"`
+1. `git clone https://github.com/moriT958/dotfiles.git "$HOME/dotfiles"`
 2. `cd dotfiles`
 3. `make link`
 
