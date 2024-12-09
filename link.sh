@@ -1,5 +1,5 @@
 # Neovim
 # TODO: Write a install script NeoVim
 
-ln -fs ~/dotfiles/nvim ~/.config/nvim
+ln -fs ~/config.nvim/nvim ~/.config/nvim
 
