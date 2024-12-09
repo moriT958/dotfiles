@@ -1,7 +1,6 @@
 # my first dotfiles
 
-- shell: zsh
-- terminal: wezTerm
+for
 - editor: NeoVim
 
 # set up 
