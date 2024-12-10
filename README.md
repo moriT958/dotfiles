@@ -1,5 +1,7 @@
 # my NeoVim configuration
 
+Started from [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
+
 ## set up
 
 1. `git clone https://github.com/moriT958/config.nvim.git "$HOME/config.nvim"`
