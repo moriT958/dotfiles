@@ -1,28 +1,25 @@
 return {
-  "rebelot/kanagawa.nvim",
-  name = "kanagawa",
+  "catppuccin/nvim",
+  name = "catppuccin",
   priority = 1000,
+  opts = {},
   config = function()
-    require("kanagawa").setup({
-      transparent = true,
-      theme = "wave",
-      background = {
-        dark = "wave",
-        light = "lotus",
+    require("catppuccin").setup({
+      transparent_background = true,
+      default_integrations = true,
+      integrations = {
+        cmp = true,
+        gitsigns = true,
+        neotree = true,
+        treesitter = true,
       },
-      overrides = function(colors)
-        local theme = colors.theme
+      custom_highlights = function(colors)
         return {
-          TelescopeTitle = { fg = theme.ui.special, bold = true },
-          TelescopePromptNormal = { bg = theme.ui.bg_p1 },
-          TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-          TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
-          TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-          TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-          TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+          LineNr = { fg = colors.overlay0 },
         }
       end,
     })
-    vim.cmd.colorscheme("kanagawa")
+    -- vim.cmd.colorscheme("catppuccin-macchiato")
+    vim.cmd.colorscheme("catppuccin-latte")
   end,
 }
