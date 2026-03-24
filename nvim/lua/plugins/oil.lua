@@ -26,7 +26,7 @@ return {
   },
   lazy = false,
 
-  vim.keymap.set("n", "\\", function()
+  vim.keymap.set("n", "-", function()
     if vim.bo.filetype ~= "oil" then
       vim.cmd("Oil")
     end
