@@ -24,6 +24,7 @@ vim.opt.scrolloff = 15
 vim.opt.termguicolors = true
 vim.opt.winblend = 0
 vim.opt.pumblend = 0
+vim.opt.guicursor = "n-v-c:block-blinkon200-blinkoff150-blinkwait50,i-ci-ve:ver25"
 
 vim.o.scroll = 10
 
