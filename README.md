@@ -8,7 +8,3 @@ Started from [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim).
 
 - `git clone https://github.com/moriT958/config.nvim.git $HOME/config.nvim`
 - `cd $HOME/config.nvim && make install`
-
-## View
-
-![](/asset/neovim.png)
