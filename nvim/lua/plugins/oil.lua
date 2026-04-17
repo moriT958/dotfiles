@@ -1,34 +1,50 @@
 return {
   "stevearc/oil.nvim",
   opts = {
+    columns = { "icon" },
+    watch_for_changes = true,
+    keymaps = {
+      ["-"] = {
+        callback = function()
+          local git = require("oil.git")
+          local current_dir = require("oil").get_current_dir()
+
+          if not current_dir then
+            return
+          end
+
+          current_dir = current_dir:gsub("/$", "") -- 末尾の / を削除
+
+          local git_root = git.get_root(current_dir)
+          local root = (git_root or vim.fn.getcwd()):gsub("/$", "")
+
+          if current_dir ~= root then
+            require("oil.actions").parent.callback()
+          end
+        end,
+        mode = "n",
+        desc = "Navigate to parent",
+      },
+    },
     view_options = {
       show_hidden = true,
-      is_hidden_file = function(name, bufnr)
-        local m = name:match("^%.")
-        return m ~= nil
-      end,
-      is_always_hidden = function(name, bufnr)
-        return false
+      is_hidden_file = function(name, _)
+        return name:match("^%.") ~= nil
       end,
       natural_order = "fast",
-      case_insensitive = false,
       sort = {
         { "type", "asc" },
         { "name", "asc" },
       },
-      highlight_filename = function(entry, is_hidden, is_link_target, is_link_orphan)
-        return nil
-      end,
     },
+    delete_to_trash = true,
   },
   dependencies = {
-    { "nvim-mini/mini.icons", opts = {} },
+    { "nvim-tree/nvim-web-devicons", opts = {} },
   },
   lazy = false,
 
   vim.keymap.set("n", "-", function()
-    if vim.bo.filetype ~= "oil" then
-      vim.cmd("Oil")
-    end
+    vim.cmd("Oil")
   end, { desc = "Open Oil" }),
 }
