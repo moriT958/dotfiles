@@ -19,6 +19,6 @@ return {
         }
       end,
     })
-    vim.cmd.colorscheme("catppuccin-macchiato")
+    vim.cmd.colorscheme("catppuccin-frappe")
   end,
 }

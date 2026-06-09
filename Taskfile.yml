@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: "3"
+
+tasks:
+  link:
+    desc: Run install script
+    cmds:
+      - . ./install.sh
+    silent: true
+
+  fmt:
+    desc: Format Lua files with stylua
+    cmds:
+      - stylua .
+
+  lint:
+    desc: Lint and type-check Lua files
+    cmds:
+      - luacheck .
+      - lua-language-server --check .
