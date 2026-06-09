@@ -1,6 +1,8 @@
+# My NeoVim Configuration
+
 My [Neovim](https://neovim.io) Configurations.
 
-**How to install**
+## How to install
 
 - `git clone https://github.com/moriT958/config.nvim.git $HOME/config.nvim`
 - `cd $HOME/config.nvim && task install`
