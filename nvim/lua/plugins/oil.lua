@@ -77,7 +77,7 @@ return {
   },
   lazy = false,
 
-  vim.keymap.set("n", "h", function()
+  vim.keymap.set("n", "-", function()
     vim.cmd("Oil")
   end, { desc = "Open Oil" }),
 }
