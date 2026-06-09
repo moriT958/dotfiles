@@ -1,3 +1,2 @@
-require("globals")
-require("pack")
-require("lsp")
+require("config.core")
+require("config.lazy")
