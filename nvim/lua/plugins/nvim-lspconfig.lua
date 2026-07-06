@@ -70,6 +70,6 @@ return {
 
     vim.filetype.add({ extension = { gotmpl = "gotmpl" } })
 
-    vim.lsp.enable({ "gopls", "lua_ls", "vtsls", "vue_ls", "astro", "ruby_lsp" })
+    vim.lsp.enable({ "gopls", "lua_ls", "vtsls", "vue_ls", "astro", "ruby_lsp", "clangd" })
   end,
 }
