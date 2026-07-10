@@ -1,10 +1,3 @@
-My [Neovim](https://neovim.io) Configurations.
+my dotfiles settings
 
-**How to install**
-
-```bash
-git clone https://github.com/moriT958/config.nvim.git $HOME/config.nvim
-cd $HOME/config.nvim && task install
-```
-
-This configuration was started based on [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim). Thank you very much.
+[Neovim](https://neovim.io) Configuration was started based on [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim). Thank you very much.

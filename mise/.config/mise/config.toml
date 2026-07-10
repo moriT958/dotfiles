@@ -1,0 +1,13 @@
+[settings]
+npm.package_manager = "pnpm"
+
+[tools]
+clang-format = "latest"
+lua = "5.4"
+lua-language-server = "latest"
+node = "22.22.3"
+"npm:@vtsls/language-server" = "latest"
+tinymist = "latest"
+tree-sitter = "latest"
+# Lua formatter
+stylua = "latest"
