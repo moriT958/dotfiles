@@ -3,7 +3,7 @@ set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TARGET="$HOME"
-PACKAGES=(nvim mise yazi starship)
+PACKAGES=(nvim mise yazi starship zsh vim ghostty)
 
 # Check Neovim installed
 if ! command -v nvim &>/dev/null; then
