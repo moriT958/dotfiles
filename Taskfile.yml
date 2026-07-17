@@ -3,19 +3,22 @@
 version: "3"
 
 tasks:
-  link:
+  install:
     desc: Run install script
     cmds:
-      - . ./bin/install.mac.sh
+      - ./bin/install.mac.sh
     silent: true
 
   fmt:
-    desc: Format Lua files with stylua
+    desc: Format nvim Lua files
+    dir: .config/nvim
     cmds:
       - stylua .
 
   lint:
-    desc: Lint and type-check Lua files
+    desc: Lint nvim Lua files
+    dir: .config/nvim
     cmds:
+      - stylua --check .
       - luacheck .
       - lua-language-server --check .

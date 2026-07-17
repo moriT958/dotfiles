@@ -9,7 +9,7 @@ fi
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 # これらのファイルは symlink したくないため
-IGNORE=(.git .gitignore .DS_Store .editorconfig .luacheckrc .luarc.json)
+IGNORE=(.git .gitignore .DS_Store .editorconfig)
 
 skip_if_real() {
     # $1: path to check. Warns and returns success (0) if it exists and isn't already our symlink.
