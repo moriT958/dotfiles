@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
+if [ "$(uname)" != "Darwin" ]; then
+    echo "[ERROR] Not macOS."
+    exit 1
+fi
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 # これらのファイルは symlink したくないため
@@ -15,6 +20,15 @@ skip_if_real() {
     return 1
 }
 
+echo "🍺 Installing Homebrew"
+if ! command -v brew &>/dev/null; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+echo "🍺 Installing Homebrew packages"
+brew bundle --file="$SCRIPT_DIR/Brewfile"
+
 echo "🔗 Linking home dotfiles"
 for file in "$SCRIPT_DIR"/.??*; do
     name="$(basename "$file")"
@@ -26,5 +40,9 @@ for file in "$SCRIPT_DIR"/.??*; do
     skip_if_real "$HOME/$name" && continue
     ln -sfnv "$file" "$HOME/$name"
 done
+
+echo "⚙️  Installing mise runtimes"
+mise trust "$SCRIPT_DIR"
+mise install
 
 echo "✅ Successfully Completed!"
