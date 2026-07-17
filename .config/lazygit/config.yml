@@ -1,0 +1,62 @@
+gui:
+  # Cattpuccin Frappe
+  theme:
+    activeBorderColor:
+      - "#babbf1"
+      - bold
+    inactiveBorderColor:
+      - "#a5adce"
+    searchingActiveBorderColor:
+      - "#e5c890"
+    optionsTextColor:
+      - "#8caaee"
+    selectedLineBgColor:
+      - "#414559"
+    inactiveViewSelectedLineBgColor:
+      - "#737994"
+    cherryPickedCommitFgColor:
+      - "#babbf1"
+    cherryPickedCommitBgColor:
+      - "#51576d"
+    markedBaseCommitFgColor:
+      - "#8caaee"
+    markedBaseCommitBgColor:
+      - "#e5c890"
+    unstagedChangesColor:
+      - "#e78284"
+    defaultFgColor:
+      - "#c6d0f5"
+
+  authorColors:
+    "*": "#babbf1"
+
+  # Cattpuccin Latte
+  # theme:
+  #   activeBorderColor:
+  #     - "#fe640b"
+  #     - bold
+  #   inactiveBorderColor:
+  #     - "#6c6f85"
+  #   searchingActiveBorderColor:
+  #     - "#df8e1d"
+  #   optionsTextColor:
+  #     - "#1e66f5"
+  #   selectedLineBgColor:
+  #     - "#ccd0da"
+  #   inactiveViewSelectedLineBgColor:
+  #     - "#9ca0b0"
+  #   cherryPickedCommitFgColor:
+  #     - "#fe640b"
+  #   cherryPickedCommitBgColor:
+  #     - "#bcc0cc"
+  #   markedBaseCommitFgColor:
+  #     - "#1e66f5"
+  #   markedBaseCommitBgColor:
+  #     - "#df8e1d"
+  #   unstagedChangesColor:
+  #     - "#d20f39"
+  #   defaultFgColor:
+  #     - "#4c4f69"
+  #
+  # authorColors:
+  #   "*": "#7287fd"

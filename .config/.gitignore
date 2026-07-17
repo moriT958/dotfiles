@@ -10,3 +10,6 @@
 !mise/**
 !starship.toml
 !ghostty/**
+!zed/settings.json
+!lazydocker/**
+!lazygit/**
