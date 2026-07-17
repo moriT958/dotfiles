@@ -22,8 +22,8 @@ export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
 
 # for Ruby mysql2 gem
-export LIBRARY_PATH=$LIBRARY_PATH:$(brew --prefix openssl)/lib
-export LIBRARY_PATH=$LIBRARY_PATH:$(brew --prefix zstd)/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/opt/openssl/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/opt/zstd/lib
 
 # pnpm
 export PNPM_HOME="/Users/morita/Library/pnpm"
