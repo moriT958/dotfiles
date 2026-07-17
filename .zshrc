@@ -13,10 +13,6 @@ RPROMPT='%F{#e5c890}${vcs_info_msg_0_}%f'
 # PROMPT=' %F{#fe640b}%. ❯ %f'
 # RPROMPT='%F{#df8e1d}${vcs_info_msg_0_}%f'
 
-# Environment Variables
-export EDITOR=nvim
-
-
 # My Alias Collection
 alias ghcd='cd $(ghq root)/$(ghq list | peco)'
 alias serve='caddy file-server --listen :8080'
@@ -28,42 +24,13 @@ alias glp='git log --graph'
 alias y='yazi'
 
 
-# Bin path setting
-export PATH="$HOME/.local/bin:$PATH"
-
-
 # mise path setting
 eval "$(/opt/homebrew/bin/mise activate zsh)"
-
-
-# Go path setting
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/go/bin
-
-
-# libpq path setting
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
-
-# mysql-client path setting
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
 
 # Git auto completion
 autoload -Uz compinit && compinit
 
-
-# for Spearly Auth mysql2 gem
-export LIBRARY_PATH=$LIBRARY_PATH:$(brew --prefix openssl)/lib
-export LIBRARY_PATH=$LIBRARY_PATH:$(brew --prefix zstd)/lib
-
-# pnpm
-export PNPM_HOME="/Users/morita/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME/bin:"*) ;;
-  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
-esac
-# pnpm end
 
 # starship
 eval "$(starship init zsh)"
