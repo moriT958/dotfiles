@@ -2,12 +2,30 @@
 npm.package_manager = "pnpm"
 
 [tools]
+# Common
+tree-sitter = "latest"
+
+# C
 clang-format = "latest"
+
+# Typst
+tinymist = "latest"
+
+# Node
+node = "lts"
+"npm:@vtsls/language-server" = "latest"
+
+# Lua
 lua = "5.4"
 lua-language-server = "latest"
-node = "22.22.3"
-"npm:@vtsls/language-server" = "latest"
-tinymist = "latest"
-tree-sitter = "latest"
-# Lua formatter
 stylua = "latest"
+
+# Go 
+go = "latest"
+"go:golang.org/x/tools/cmd/godoc" = "latest"
+"go:github.com/golangci/golangci-lint/cmd/golangci-lint" = "latest"
+"go:github.com/pressly/goose/v3/cmd/goose" = "latest"
+"go:golang.org/x/tools/gopls" = "latest"
+"go:github.com/goreleaser/goreleaser/v2" = "latest"
+"go:github.com/sqlc-dev/sqlc/cmd/sqlc" = "latest"
+"go:github.com/wailsapp/wails/v2/cmd/wails" = "latest"
