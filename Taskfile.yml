@@ -6,7 +6,7 @@ tasks:
   link:
     desc: Run install script
     cmds:
-      - . ./install.sh
+      - . ./bin/install.mac.sh
     silent: true
 
   fmt:

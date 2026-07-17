@@ -1,0 +1,12 @@
+# Default-deny: only explicitly allowed apps are tracked.
+# ~/.config is symlinked here wholesale, so anything not listed below
+# just silently sits untracked on disk instead of showing up as noise.
+*
+!*/
+!.gitignore
+
+!nvim/**
+!yazi/**
+!mise/**
+!starship.toml
+!ghostty/**
