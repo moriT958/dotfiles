@@ -2,7 +2,6 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-IGNORE=(.git .gitignore .DS_Store .editorconfig .luacheckrc .luarc.json .claude)
 
 # Check Neovim installed
 if ! command -v nvim &>/dev/null; then
@@ -18,18 +17,13 @@ backup_if_real() {
     fi
 }
 
-echo "🔗 Linking ~/.config -> $SCRIPT_DIR/config"
+echo "🔗 Linking ~/.config -> $SCRIPT_DIR/xdg_config"
 backup_if_real "$HOME/.config"
-ln -sfnv "$SCRIPT_DIR/config" "$HOME/.config"
+ln -sfnv "$SCRIPT_DIR/xdg_config" "$HOME/.config"
 
 echo "🔗 Linking home dotfiles"
-for file in "$SCRIPT_DIR"/.??*; do
+for file in "$SCRIPT_DIR"/home/.??*; do
     name="$(basename "$file")"
-    skip=false
-    for ign in "${IGNORE[@]}"; do
-        [ "$ign" = "$name" ] && skip=true && break
-    done
-    $skip && continue
     backup_if_real "$HOME/$name"
     ln -sfnv "$file" "$HOME/$name"
 done
@@ -39,6 +33,6 @@ done
 echo "🔗 Linking ~/.claude/skills/implement"
 mkdir -p "$HOME/.claude/skills"
 backup_if_real "$HOME/.claude/skills/implement"
-ln -sfnv "$SCRIPT_DIR/.claude/skills/implement" "$HOME/.claude/skills/implement"
+ln -sfnv "$SCRIPT_DIR/home/.claude/skills/implement" "$HOME/.claude/skills/implement"
 
 echo "✅ Successfully Completed!"
