@@ -23,13 +23,14 @@ alias note='notebox'
 alias glp='git log --graph'
 alias y='yazi'
 
+bindkey -e
 
 # mise path setting
 eval "$(/opt/homebrew/bin/mise activate zsh)"
 
 
-# Git auto completion
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+compinit
 
 
 # starship
