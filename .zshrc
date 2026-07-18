@@ -1,14 +1,14 @@
 # Zsh prompt setting
-autoload -Uz vcs_info
-precmd() { vcs_info }
-setopt prompt_subst
-
-zstyle ':vcs_info:git:*' formats '(%b)'
-zstyle ':vcs_info:*' enable git
-
-# Dark
-PROMPT=' %F{#ef9f76}%. ❯ %f'
-RPROMPT='%F{#e5c890}${vcs_info_msg_0_}%f'
+# autoload -Uz vcs_info
+# precmd() { vcs_info }
+# setopt prompt_subst
+#
+# zstyle ':vcs_info:git:*' formats '(%b)'
+# zstyle ':vcs_info:*' enable git
+#
+# # Dark
+# PROMPT=' %F{#ef9f76}%. ❯ %f'
+# RPROMPT='%F{#e5c890}${vcs_info_msg_0_}%f'
 # Light
 # PROMPT=' %F{#fe640b}%. ❯ %f'
 # RPROMPT='%F{#df8e1d}${vcs_info_msg_0_}%f'

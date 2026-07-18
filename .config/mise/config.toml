@@ -13,7 +13,9 @@ tinymist = "latest"
 
 # Node
 node = "lts"
+pnpm = "latest"
 "npm:@vtsls/language-server" = "latest"
+"npm:prettier" = "latest"
 
 # Lua
 lua = "5.4"

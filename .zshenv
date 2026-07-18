@@ -25,9 +25,3 @@ export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/opt/openssl/lib
 export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/opt/zstd/lib
 
-# pnpm
-export PNPM_HOME="/Users/morita/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME/bin:"*) ;;
-  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
-esac
