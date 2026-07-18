@@ -15,7 +15,20 @@ end
 
 vim.pack.add(telescope_plugins)
 
+local vimgrep_arguments = { unpack(require("telescope.config").values.vimgrep_arguments) }
+table.insert(vimgrep_arguments, "--hidden")
+table.insert(vimgrep_arguments, "--glob=!.git/*")
+
 require("telescope").setup({
+  defaults = {
+    vimgrep_arguments = vimgrep_arguments,
+    file_ignore_patterns = { "%.git/" },
+  },
+  pickers = {
+    find_files = {
+      hidden = true,
+    },
+  },
   extensions = {
     ["ui-select"] = {
       require("telescope.themes").get_dropdown(),
