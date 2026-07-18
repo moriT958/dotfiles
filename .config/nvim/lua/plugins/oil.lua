@@ -3,6 +3,7 @@ local gh = require("config.gh")
 vim.pack.add({
   gh("nvim-tree/nvim-web-devicons"),
   gh("stevearc/oil.nvim"),
+  gh("refractalize/oil-git-status.nvim"),
 })
 
 require("oil").setup({
@@ -43,6 +44,38 @@ require("oil").setup({
     },
   },
   delete_to_trash = true,
+  win_options = {
+    signcolumn = "yes:2",
+  },
+})
+
+require("oil-git-status").setup({
+  symbols = {
+    index = {
+      ["!"] = "!",
+      ["?"] = "+",
+      ["A"] = "+",
+      ["C"] = "+",
+      ["D"] = "_",
+      ["M"] = "~",
+      ["R"] = "~",
+      ["T"] = "~",
+      ["U"] = "~",
+      [" "] = " ",
+    },
+    working_tree = {
+      ["!"] = "!",
+      ["?"] = "+",
+      ["A"] = "+",
+      ["C"] = "+",
+      ["D"] = "_",
+      ["M"] = "~",
+      ["R"] = "~",
+      ["T"] = "~",
+      ["U"] = "~",
+      [" "] = " ",
+    },
+  },
 })
 
 vim.keymap.set("n", "-", function()
