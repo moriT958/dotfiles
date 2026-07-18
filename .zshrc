@@ -1,17 +1,10 @@
-# Zsh prompt setting
-# autoload -Uz vcs_info
-# precmd() { vcs_info }
-# setopt prompt_subst
-#
-# zstyle ':vcs_info:git:*' formats '(%b)'
-# zstyle ':vcs_info:*' enable git
-#
-# # Dark
-# PROMPT=' %F{#ef9f76}%. ❯ %f'
-# RPROMPT='%F{#e5c890}${vcs_info_msg_0_}%f'
-# Light
-# PROMPT=' %F{#fe640b}%. ❯ %f'
-# RPROMPT='%F{#df8e1d}${vcs_info_msg_0_}%f'
+# Powerlevel10k instant prompt (must stay close to the top of .zshrc)
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Powerlevel10k theme
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # My Alias Collection
 alias ghcd='cd $(ghq root)/$(ghq list | peco)'
@@ -32,6 +25,5 @@ eval "$(/opt/homebrew/bin/mise activate zsh)"
 autoload -Uz compinit
 compinit
 
-
-# starship
-eval "$(starship init zsh)"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
