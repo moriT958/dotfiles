@@ -31,3 +31,7 @@ go = "latest"
 "go:github.com/goreleaser/goreleaser/v2" = "latest"
 "go:github.com/sqlc-dev/sqlc/cmd/sqlc" = "latest"
 "go:github.com/wailsapp/wails/v2/cmd/wails" = "latest"
+
+# Ruby
+ruby = "latest"
+"gem:ruby-lsp" = "latest"
