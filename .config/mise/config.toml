@@ -35,3 +35,7 @@ go = "latest"
 # Ruby
 ruby = "latest"
 "gem:ruby-lsp" = "latest"
+
+# Python
+python = "latest"
+uv = "latest"
