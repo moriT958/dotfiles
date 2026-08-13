@@ -21,6 +21,7 @@ require("conform").setup({
     yaml = { "prettier" },
     c = { "clang_format" },
     cpp = { "clang_format" },
+    rust = { "rustfmt" },
   },
 })
 

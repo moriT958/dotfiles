@@ -38,3 +38,4 @@ ruby = "latest"
 
 # Python
 uv = "latest"
+rust = "latest"
