@@ -41,7 +41,7 @@
     "indent_size": 10.0,
     "entry_spacing": "standard",
     "dock": "left",
-    "auto_reveal_entries": false
+    "auto_reveal_entries": true
   },
   "cursor_shape": "bar",
   "buffer_line_height": "comfortable",
