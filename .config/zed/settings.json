@@ -29,6 +29,7 @@
     "dock": "left",
   },
   "outline_panel": {
+    "expand_outlines_with_depth": 0,
     "auto_fold_dirs": true,
     "file_icons": true,
     "indent_size": 15.0,
