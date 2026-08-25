@@ -51,6 +51,9 @@
   "vim_mode": true,
   "relative_line_numbers": "enabled",
   "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    },
     "claude-acp": {
       "default_config_options": {
         "model": "default",
