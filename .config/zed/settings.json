@@ -64,14 +64,14 @@
     "light": "Catppuccin Latte",
     "dark": "Catppuccin Frappé",
   },
-  "ui_font_size": 12.5,
-  "buffer_font_size": 11.5,
-  "agent_ui_font_size": 13.5,
   "theme": {
     "mode": "system",
     "light": "One Light",
     "dark": "One Dark",
   },
+  "ui_font_size": 12.5,
+  "buffer_font_size": 11.5,
+  "agent_ui_font_size": 13.5,
   "languages": {
     "Markdown": {
       "show_edit_predictions": false
