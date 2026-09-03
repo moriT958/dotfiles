@@ -8,6 +8,7 @@ source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # My Alias Collection
 alias ghcd='cd $(ghq root)/$(ghq list | peco)'
+alias ghrm='ghq rm $(ghq list | peco)'
 alias serve='caddy file-server --listen :8080'
 alias lg='lazygit'
 alias ld='lazydocker'
