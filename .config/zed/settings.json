@@ -12,16 +12,38 @@
   "sticky_scroll": {
     "enabled": true
   },
-  "show_edit_predictions": false,
+  "show_edit_predictions": true,
   "agent": {
+    "tool_permissions": {
+      "tools": {
+        "terminal": {
+          "always_allow": [
+            {
+              "pattern": "^go\\s+test(\\s|$)"
+            }
+          ]
+        },
+        "create_directory": {
+          "always_allow": [
+            {
+              "pattern": "^dino-game/cmd/"
+            },
+            {
+              "pattern": "^dino-game/internal/"
+            }
+          ]
+        }
+      }
+    },
+    "default_profile": "ask",
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-sonnet-4-6",
       "enable_thinking": true,
       "effort": "high",
     },
-    "sidebar_side": "right",
-    "dock": "right",
+    "sidebar_side": "left",
+    "dock": "left",
     "favorite_models": [],
     "model_parameters": [],
   },
@@ -56,6 +78,7 @@
     },
     "claude-acp": {
       "default_config_options": {
+        "fast": false,
         "model": "default",
         "mode": "auto"
       },
