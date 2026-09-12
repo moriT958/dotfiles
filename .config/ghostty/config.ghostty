@@ -9,6 +9,8 @@ font-size = 11.5
 font-feature = -calt
 font-feature = -dlig
 
+cursor-color = cell-foreground
+
 window-height = 55
 window-width = 180
 maximize = true
