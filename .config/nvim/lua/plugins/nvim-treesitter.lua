@@ -4,6 +4,7 @@ vim.pack.add({ { src = gh("nvim-treesitter/nvim-treesitter"), version = "main" }
 
 local parsers = {
   "astro",
+  "bash",
   "c",
   "cpp",
   "go",
