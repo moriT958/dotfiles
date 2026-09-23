@@ -14,6 +14,7 @@
   },
   "show_edit_predictions": true,
   "agent": {
+    "expand_terminal_card": false,
     "tool_permissions": {
       "tools": {
         "terminal": {
