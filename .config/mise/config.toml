@@ -39,3 +39,5 @@ ruby = "latest"
 # Python
 uv = "latest"
 rust = "latest"
+zig = "0.16.0"
+zls = "0.16.0"
