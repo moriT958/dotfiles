@@ -27,7 +27,7 @@ fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "🍺 Installing Homebrew packages"
-brew bundle --file="$SCRIPT_DIR/Brewfile"
+brew bundle --file="$SCRIPT_DIR/.config/homebrew/Brewfile"
 
 echo "🔗 Linking home dotfiles"
 for file in "$SCRIPT_DIR"/.??*; do
