@@ -56,6 +56,8 @@ brew "kubernetes-cli"
 brew "lazydocker"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Library for encoding and decoding .avif files
+brew "libavif"
 # Postgres C API library
 brew "libpq"
 # Powerful, lightweight programming language
