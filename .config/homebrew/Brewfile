@@ -112,5 +112,4 @@ cask "gcloud-cli"
 cask "ghostty"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
-go "cmd/go"
-go "cmd/gofmt"
+npm "corepack"
