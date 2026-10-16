@@ -16,6 +16,7 @@ alias cld='claude'
 alias n='nbx'
 alias glp='git log --graph'
 alias y='yazi'
+alias c='chezmoi'
 
 bindkey -e
 

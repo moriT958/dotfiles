@@ -9,7 +9,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 
 # Go path setting
-export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
 
 

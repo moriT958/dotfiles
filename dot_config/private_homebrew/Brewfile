@@ -58,8 +58,6 @@ brew "lazygit"
 brew "libavif"
 # Postgres C API library
 brew "libpq"
-# Powerful, lightweight programming language
-brew "lua"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Open source relational database management system
@@ -86,8 +84,6 @@ brew "resvg"
 brew "ripgrep"
 # 7-Zip is a file archiver with a high compression ratio
 brew "sevenzip"
-# Organize software neatly under a single directory tree (e.g. /usr/local)
-brew "stow"
 # Terminal multiplexer
 brew "tmux"
 # Markup-based typesetting system
@@ -110,8 +106,5 @@ cask "font-plemol-jp-nf"
 cask "font-symbols-only-nerd-font"
 # Set of tools to manage resources and applications hosted on Google Cloud
 cask "gcloud-cli"
-# Terminal emulator that uses platform-native UI and GPU acceleration
-cask "ghostty"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
-npm "corepack"
