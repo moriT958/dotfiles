@@ -13,7 +13,7 @@ alias serve='caddy file-server --listen :8080'
 alias lg='lazygit'
 alias ld='lazydocker'
 alias cld='claude'
-alias note='notebox'
+alias n='nbx'
 alias glp='git log --graph'
 alias y='yazi'
 
