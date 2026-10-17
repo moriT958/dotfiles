@@ -1,5 +1,7 @@
 tap "charmbracelet/tap"
 tap "hashicorp/tap"
+# Simple, modern, secure file encryption
+brew "age"
 # Zstandard is a real-time compression algorithm
 brew "zstd"
 # Automate deployment, configuration, and upgrading
