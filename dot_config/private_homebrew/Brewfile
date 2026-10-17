@@ -1,13 +1,19 @@
 tap "charmbracelet/tap"
 tap "hashicorp/tap"
+# Simple, modern, secure file encryption
+brew "age"
 # Zstandard is a real-time compression algorithm
 brew "zstd"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
 # Official Amazon AWS command-line interface
 brew "awscli"
+# Secure and free password manager for all of your devices
+brew "bitwarden-cli"
 # Powerful, enterprise-ready, open source web server with automatic HTTPS
 brew "caddy"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
 # Utility for connecting securely to your Cloud SQL instances
 brew "cloud-sql-proxy"
 # Cross-platform make
@@ -58,8 +64,6 @@ brew "lazygit"
 brew "libavif"
 # Postgres C API library
 brew "libpq"
-# Powerful, lightweight programming language
-brew "lua"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Open source relational database management system
@@ -86,8 +90,6 @@ brew "resvg"
 brew "ripgrep"
 # 7-Zip is a file archiver with a high compression ratio
 brew "sevenzip"
-# Organize software neatly under a single directory tree (e.g. /usr/local)
-brew "stow"
 # Terminal multiplexer
 brew "tmux"
 # Markup-based typesetting system
@@ -100,6 +102,10 @@ brew "woff2"
 brew "yazi"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# Fish shell like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Additional completion definitions for zsh
+brew "zsh-completions"
 # Terraform
 brew "hashicorp/tap/terraform", trusted: true
 # Command-line interface for 1Password
@@ -110,8 +116,5 @@ cask "font-plemol-jp-nf"
 cask "font-symbols-only-nerd-font"
 # Set of tools to manage resources and applications hosted on Google Cloud
 cask "gcloud-cli"
-# Terminal emulator that uses platform-native UI and GPU acceleration
-cask "ghostty"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
-npm "corepack"
