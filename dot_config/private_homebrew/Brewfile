@@ -102,6 +102,10 @@ brew "woff2"
 brew "yazi"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# Fish shell like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Additional completion definitions for zsh
+brew "zsh-completions"
 # Terraform
 brew "hashicorp/tap/terraform", trusted: true
 # Command-line interface for 1Password
