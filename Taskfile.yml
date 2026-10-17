@@ -13,7 +13,6 @@ tasks:
     desc: Lint nvim Lua files
     dir: dot_config/nvim
     cmds:
-      # chezmoi の source 側では dot_ 名になっているため、設定ファイルを明示する
       - stylua --check .
       - luacheck --config dot_luacheckrc .
       - lua-language-server --check . --configpath dot_luarc.json
