@@ -6,6 +6,8 @@ brew "zstd"
 brew "ansible"
 # Official Amazon AWS command-line interface
 brew "awscli"
+# Secure and free password manager for all of your devices
+brew "bitwarden-cli"
 # Powerful, enterprise-ready, open source web server with automatic HTTPS
 brew "caddy"
 # Manage your dotfiles across multiple diverse machines, securely
