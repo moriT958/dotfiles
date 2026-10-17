@@ -16,7 +16,11 @@ alias cld='claude'
 alias n='nbx'
 alias glp='git log --graph'
 alias y='yazi'
+
+# Chezmoi
 alias c='chezmoi'
+# chezmoi cd だとサブシェルを起動してしまうので直で cd できるようにしておく
+alias ccd='cd "$(chezmoi source-path)"'
 
 bindkey -e
 
