@@ -1,4 +1,5 @@
 # Load standart distro settings.
+force_color_prompt=yes
 [ ! -r /etc/skel/.bashrc ] || . /etc/skel/.bashrc
 
 export XDG_CONFIG_HOME="$HOME/.config"
