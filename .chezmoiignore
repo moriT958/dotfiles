@@ -1,6 +1,14 @@
 README.md
 
-{{- if ne .chezmoi.os "darwin" }}
+{{- if eq .chezmoi.os "darwin" }}
+.bashrc
+{{- end }}
+
+{{- if eq .chezmoi.os "linux" }}
+.zprofile
+.zshenv
+.zshrc
+.p10k.zsh
 .config/ghostty
 .config/zed
 .config/homebrew

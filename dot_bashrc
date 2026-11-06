@@ -1,0 +1,29 @@
+# Load standart distro settings.
+[ ! -r /etc/skel/.bashrc ] || . /etc/skel/.bashrc
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# Environment Variables
+export EDITOR=nvim
+
+# Bin path setting
+export PATH="$HOME/.local/bin:$PATH"
+
+# Go path setting
+export PATH="$PATH:$HOME/go/bin"
+
+# My Alias Collection
+alias ghcd='cd $(ghq root)/$(ghq list | peco)'
+alias y='yazi'
+alias lg='lazygit'
+alias ld='lazydocker'
+alias n='nbx'
+alias cld='claude'
+alias cldr='claude --resume'
+
+# Chezmoi
+alias c='chezmoi'
+alias ccd='cd "$(chezmoi source-path)"'
+
+# mise path setting
+! command -v mise >/dev/null || eval "$(mise activate bash)"
