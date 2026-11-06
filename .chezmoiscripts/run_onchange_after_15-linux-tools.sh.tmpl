@@ -1,0 +1,36 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+set -euo pipefail
+
+work="$(mktemp -d)"
+trap 'rm -rf "$work"' EXIT
+cd "$work"
+
+arch="$(uname -m | sed 's/aarch64/arm64/')"
+
+# Install Neovim
+curl -fLO "https://github.com/neovim/neovim/releases/latest/download/nvim-linux-${arch}.tar.gz"
+sudo rm -rf "/opt/nvim-linux-${arch}"
+sudo tar -C /opt -xzf "nvim-linux-${arch}.tar.gz"
+sudo ln -sf "/opt/nvim-linux-${arch}/bin/nvim" /usr/local/bin/nvim
+
+# Install lazygit
+lazygit_version="$(curl -fsSL https://api.github.com/repos/jesseduffield/lazygit/releases/latest | grep -Po '"tag_name": *"v\K[^"]*')"
+curl -fLo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${lazygit_version}/lazygit_${lazygit_version}_Linux_${arch}.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit -D -t /usr/local/bin/
+
+# Install lazydocker
+curl -fsSL https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+
+# Install yazi
+curl -fsSL https://yazi-rs.github.io/builds/yazi-keyring.gpg | sudo tee /usr/share/keyrings/yazi-keyring.gpg >/dev/null
+echo 'deb [signed-by=/usr/share/keyrings/yazi-keyring.gpg] https://yazi-rs.github.io/builds/ stable main' | sudo tee /etc/apt/sources.list.d/yazi.list >/dev/null
+sudo apt-get update
+sudo apt-get install -y file yazi
+
+# Install ghq
+curl -fLO "https://github.com/x-motemen/ghq/releases/latest/download/ghq_linux_{{ .chezmoi.arch }}.zip"
+unzip -q "ghq_linux_{{ .chezmoi.arch }}.zip"
+sudo install "ghq_linux_{{ .chezmoi.arch }}/ghq" -D -t /usr/local/bin/
+{{ end -}}
