@@ -1,7 +1,6 @@
 README.md
 
 {{- if ne .chezmoi.os "darwin" }}
-# Mac 専用 (GUI アプリと Homebrew の設定)
 .config/ghostty
 .config/zed
 .config/homebrew
