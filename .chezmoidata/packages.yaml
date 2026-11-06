@@ -1,0 +1,22 @@
+apt:
+  - build-essential
+  - ca-certificates
+  - curl
+  - git
+  - unzip
+  - zstd
+  - fd-find
+  - fzf
+  - gdb
+  - gh
+  - jq
+  - peco
+  - ripgrep
+  - tmux
+  - zoxide
+  - libffi-dev
+  - libssl-dev
+  - libyaml-dev
+  - zlib1g-dev
+  - default-libmysqlclient-dev
+  - libpq-dev

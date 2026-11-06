@@ -8,6 +8,9 @@ cd "$work"
 
 arch="$(uname -m | sed 's/aarch64/arm64/')"
 
+# Install mise
+curl -fsSL https://mise.run | sh
+
 # Install Neovim
 curl -fLO "https://github.com/neovim/neovim/releases/latest/download/nvim-linux-${arch}.tar.gz"
 sudo rm -rf "/opt/nvim-linux-${arch}"
