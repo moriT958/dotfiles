@@ -39,4 +39,7 @@ sudo install "ghq_linux_{{ .chezmoi.arch }}/ghq" -D -t /usr/local/bin/
 
 # Install Tailscale
 curl -fsSL https://tailscale.com/install.sh | sh
+
+# Install Rex
+curl -fsSL https://pkgs.superlogical.com/rex/install.sh | sh
 {{ end -}}
