@@ -5,14 +5,12 @@ version: "3"
 tasks:
   fmt:
     desc: Format nvim Lua files
-    dir: dot_config/nvim
     cmds:
-      - stylua .
+      - stylua dot_config/nvim
 
   lint:
     desc: Lint nvim Lua files
-    dir: dot_config/nvim
     cmds:
-      - stylua --check .
-      - luacheck --config dot_luacheckrc .
-      - lua-language-server --check . --configpath dot_luarc.json
+      - stylua --check dot_config/nvim
+      - luacheck dot_config/nvim
+      - lua-language-server --check dot_config/nvim --configpath "$PWD/.luarc.json"
