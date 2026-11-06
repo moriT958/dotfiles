@@ -12,8 +12,8 @@ alias y='yazi'
 alias lg='lazygit'
 alias ld='lazydocker'
 alias n='nbx'
-alias cld='claude'
-alias cldr='claude --resume'
+alias cld='CLAUDE_CODE_ENABLE_TODO_TOOLS=1 claude'
+alias cldr='CLAUDE_CODE_ENABLE_TODO_TOOLS=1 claude --resume'
 
 # Chezmoi
 alias c='chezmoi'
