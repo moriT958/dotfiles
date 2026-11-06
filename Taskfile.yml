@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: "3"
+
+tasks:
+  fmt:
+    desc: Format nvim Lua files
+    dir: dot_config/nvim
+    cmds:
+      - stylua .
+
+  lint:
+    desc: Lint nvim Lua files
+    dir: dot_config/nvim
+    cmds:
+      - stylua --check .
+      - luacheck --config dot_luacheckrc .
+      - lua-language-server --check . --configpath dot_luarc.json

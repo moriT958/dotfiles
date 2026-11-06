@@ -1,0 +1,166 @@
+set nocompatible
+set encoding=utf-8
+
+if 1
+  scriptencoding utf-8
+  set fileencodings=utf-8,cp932,euc-jp,latin1
+
+  let g:mapleader = ' '
+  let g:maplocalleader = ' '
+
+  set number
+  set relativenumber
+  set mouse=a
+  set breakindent
+  set ignorecase
+  set smartcase
+  set incsearch
+  set hlsearch
+  set updatetime=250
+  set timeoutlen=300
+  set ttimeout
+  set ttimeoutlen=10
+  set splitright
+  set splitbelow
+  set list
+  set listchars=tab:»\ ,trail:·,nbsp:␣
+  set scrolloff=15
+  set scroll=10
+  set hidden
+  set backspace=indent,eol,start
+  set laststatus=2
+  set ruler
+  set showcmd
+  set wildmenu
+  set wildmode=longest:full,full
+  set wildignore+=*/.git/*,*/node_modules/*
+  set path+=**
+  set autoindent
+  set expandtab
+  set tabstop=4
+  set shiftwidth=4
+  set softtabstop=-1
+  set nrformats-=octal
+  if exists('+belloff')
+    set belloff=all
+  endif
+  set shortmess-=S
+  set display=lastline
+  if exists('+signcolumn')
+    set signcolumn=yes
+  endif
+
+  " ターミナルの cursor shape (insert は縦棒、それ以外はブロック)
+  let &t_SI = "\e[6 q"
+  let &t_EI = "\e[2 q"
+
+  " [[ Files ]]
+  " undo ファイルの形式は Vim と Neovim で互換性がないので、nvim とは別の場所に置く
+  let s:data = expand('~/.vim')
+  for s:dir in ['undo', 'swap', 'backup']
+    if !isdirectory(s:data . '/' . s:dir)
+      call mkdir(s:data . '/' . s:dir, 'p', 0700)
+    endif
+  endfor
+  let &directory = s:data . '/swap//'
+  let &backupdir = s:data . '/backup//'
+  if has('persistent_undo')
+    let &undodir = s:data . '/undo//'
+    set undofile
+  endif
+  " viminfo も nvim (shada) とは別ファイル
+  set viminfo='100,<50,s10,h,n~/.vim/viminfo
+
+  " [[ Appearance ]]
+  syntax enable
+  filetype plugin indent on
+  
+  set statusline=%f\ %m%r%h%w%=%{&fileencoding?&fileencoding:&encoding}\ %{&fileformat}\ %y\ %l:%c\ %p%%
+
+  " [[ netrw ]] (oil.nvim の代わり)
+  let g:netrw_banner = 0
+  let g:netrw_liststyle = 3
+  let g:netrw_keepdir = 0
+
+  " [[ Clipboard ]]
+  " ローカルでクリップボードが使えるならそれを使う。
+  " SSH 先では OSC 52 でヤンクした内容を手元の端末 (Ghostty など) のクリップボードに送る。
+  if has('clipboard') && empty($SSH_TTY)
+    set clipboard=unnamed,unnamedplus
+  endif
+
+  function! s:osc52(text) abort
+    let l:b64 = substitute(system('base64 | tr -d "\n"', a:text), '\n', '', 'g')
+    let l:seq = "\e]52;c;" . l:b64 . "\x07"
+    if !empty($TMUX)
+      " tmux の passthrough 経由で端末に届ける
+      let l:seq = "\ePtmux;\e" . substitute(l:seq, "\e", "\e\e", 'g') . "\e\\"
+    endif
+    if exists('*echoraw')
+      call echoraw(l:seq)
+    else
+      call writefile([l:seq], '/dev/tty', 'b')
+    endif
+  endfunction
+
+  " [[ Autocommands ]]
+  augroup vimrc
+    autocmd!
+    " 前回閉じた位置にカーソルを戻す
+    autocmd BufReadPost *
+          \ if line("'\"") >= 1 && line("'\"") <= line('$') && &filetype !~# 'commit'
+          \ |   execute 'normal! g`"'
+          \ | endif
+    autocmd FileType lua,vim,yaml,json,javascript,typescript,html,css,ruby
+          \ setlocal tabstop=2 shiftwidth=2
+    autocmd FileType make setlocal noexpandtab
+    if exists('##TextYankPost')
+      " ヤンク範囲をハイライト (Vim 9.1 以降に同梱)
+      silent! packadd hlyank
+      if !empty($SSH_TTY) || !has('clipboard')
+        autocmd TextYankPost *
+              \ if v:event.operator ==# 'y' && v:event.regname =~# '^[+*]\=$'
+              \ |   call s:osc52(join(v:event.regcontents, "\n"))
+              \ | endif
+      endif
+    endif
+  augroup END
+
+  " [[ Keymaps ]]
+  " 古い Vim でも動くよう <Cmd> は使わない。
+  " 端末 Vim で <Esc> 単体を map すると矢印キーなどが誤動作するので 2 連打にしている
+  nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
+  nnoremap <C-h> <C-w><C-h>
+  nnoremap <C-l> <C-w><C-l>
+  nnoremap <C-j> <C-w><C-j>
+  nnoremap <C-k> <C-w><C-k>
+  if has('terminal')
+    tnoremap <Esc><Esc> <C-\><C-n>
+  endif
+
+  " telescope の代わりに組み込み機能で
+  nnoremap <Leader>sf :find<Space>
+  nnoremap <Leader>sg :vimgrep //j **<Left><Left><Left><Left><Left><Left>
+  nnoremap <Leader><Leader> :ls<CR>:buffer<Space>
+  nnoremap <Leader>- :<C-u>Explore<CR>
+  nnoremap <Leader>q :<C-u>copen<CR>
+  nnoremap ]q :<C-u>cnext<CR>
+  nnoremap [q :<C-u>cprevious<CR>
+
+  " 外部の grep が使えるなら :grep を速いものに
+  if executable('rg')
+    set grepprg=rg\ --vimgrep\ --smart-case
+    set grepformat=%f:%l:%c:%m
+    nnoremap <Leader>sg :silent grep!<Space>
+    autocmd vimrc QuickFixCmdPost grep cwindow | redraw!
+  endif
+
+  " 書き込み権限がないファイルを sudo で保存
+  command! W execute 'silent write !sudo tee % > /dev/null' | edit!
+
+  " マシン固有の設定 (このファイルは共通のまま、SSH 先ごとの調整はここに)
+  if filereadable(expand('~/.vimrc.local'))
+    source ~/.vimrc.local
+  endif
+endif
+
