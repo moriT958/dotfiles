@@ -3,6 +3,7 @@ Taskfile.yml
 
 {{- if eq .chezmoi.os "darwin" }}
 .bashrc
+.config/systemd
 {{- end }}
 
 {{- if eq .chezmoi.os "linux" }}
