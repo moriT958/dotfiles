@@ -36,4 +36,7 @@ sudo apt-get install -y file yazi
 curl -fLO "https://github.com/x-motemen/ghq/releases/latest/download/ghq_linux_{{ .chezmoi.arch }}.zip"
 unzip -q "ghq_linux_{{ .chezmoi.arch }}.zip"
 sudo install "ghq_linux_{{ .chezmoi.arch }}/ghq" -D -t /usr/local/bin/
+
+# Install Tailscale
+curl -fsSL https://tailscale.com/install.sh | sh
 {{ end -}}
