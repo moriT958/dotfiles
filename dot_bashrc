@@ -26,5 +26,12 @@ alias cldr='CLAUDE_CODE_ENABLE_TODO_TOOLS=1 claude --resume'
 alias c='chezmoi'
 alias ccd='cd "$(chezmoi source-path)"'
 
+# 1Password サービスアカウントのトークンを設定する
+# 初回は手動で作る:
+#
+# install -m 600 /dev/null ~/.config/op-token.env
+# 中身: export OP_SERVICE_ACCOUNT_TOKEN=ops_...
+[ ! -f ~/.config/op-token.env ] || . ~/.config/op-token.env
+
 # mise path setting
 ! command -v mise >/dev/null || eval "$(mise activate bash)"

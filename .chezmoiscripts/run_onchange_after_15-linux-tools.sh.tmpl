@@ -31,6 +31,15 @@ curl -fLo k9s.tar.gz "https://github.com/derailed/k9s/releases/latest/download/k
 tar xf k9s.tar.gz k9s
 sudo install k9s -D -t /usr/local/bin/
 
+# Install 1Password CLI
+curl -fsSL https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --yes --output /usr/share/keyrings/1password-archive-keyring.gpg
+echo 'deb [arch={{ .chezmoi.arch }} signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/{{ .chezmoi.arch }} stable main' | sudo tee /etc/apt/sources.list.d/1password.list >/dev/null
+sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22 /usr/share/debsig/keyrings/AC2D62742012EA22
+curl -fsSL https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol >/dev/null
+curl -fsSL https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --yes --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+sudo apt-get update
+sudo apt-get install -y 1password-cli
+
 # Install yazi
 curl -fsSL https://yazi-rs.github.io/builds/yazi-keyring.gpg | sudo tee /usr/share/keyrings/yazi-keyring.gpg >/dev/null
 echo 'deb [signed-by=/usr/share/keyrings/yazi-keyring.gpg] https://yazi-rs.github.io/builds/ stable main' | sudo tee /etc/apt/sources.list.d/yazi.list >/dev/null
