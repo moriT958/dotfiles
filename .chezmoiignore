@@ -4,6 +4,7 @@ Taskfile.yml
 {{- if eq .chezmoi.os "darwin" }}
 .bashrc
 .config/systemd
+.local/share/k9s
 {{- end }}
 
 {{- if eq .chezmoi.os "linux" }}
@@ -14,4 +15,5 @@ Taskfile.yml
 .config/ghostty
 .config/zed
 .config/homebrew
+Library
 {{- end }}

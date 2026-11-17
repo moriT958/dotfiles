@@ -26,6 +26,11 @@ sudo install lazygit -D -t /usr/local/bin/
 # Install lazydocker
 curl -fsSL https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
 
+# Install k9s
+curl -fLo k9s.tar.gz "https://github.com/derailed/k9s/releases/latest/download/k9s_Linux_${arch}.tar.gz"
+tar xf k9s.tar.gz k9s
+sudo install k9s -D -t /usr/local/bin/
+
 # Install yazi
 curl -fsSL https://yazi-rs.github.io/builds/yazi-keyring.gpg | sudo tee /usr/share/keyrings/yazi-keyring.gpg >/dev/null
 echo 'deb [signed-by=/usr/share/keyrings/yazi-keyring.gpg] https://yazi-rs.github.io/builds/ stable main' | sudo tee /etc/apt/sources.list.d/yazi.list >/dev/null
