@@ -27,7 +27,7 @@ sudo install lazygit -D -t /usr/local/bin/
 curl -fsSL https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
 
 # Install k9s
-curl -fLo k9s.tar.gz "https://github.com/derailed/k9s/releases/latest/download/k9s_Linux_${arch}.tar.gz"
+curl -fLo k9s.tar.gz "https://github.com/derailed/k9s/releases/latest/download/k9s_Linux_{{ .chezmoi.arch }}.tar.gz"
 tar xf k9s.tar.gz k9s
 sudo install k9s -D -t /usr/local/bin/
 
