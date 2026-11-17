@@ -1,12 +1,12 @@
 k9s:
   cluster: main
   namespace:
-    active: default
+    active: all
     lockFavorites: false
     favorites:
       - default
   view:
-    active: v1/pods default
+    active: v1/pods all
   featureGates:
     nodeShell: false
   proxy: null
